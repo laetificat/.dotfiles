@@ -1,0 +1,40 @@
+# General settings
+set timeout = 10
+set mail_check = 60
+set sort = "reverse-date-received"
+set copy = no
+set mailcap_path = ~/.mutt/mailcap
+auto_view text/html
+alternative_order text/plain text/html
+
+# Sidebar options
+set sidebar_visible = yes
+set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S" 
+set mail_check_stats
+set sidebar_new_mail_only = no
+set sidebar_divider_char = '|'
+
+bind index,pager \Ck sidebar-prev       # Ctrl-P - Previous Mailbox
+bind index,pager \Cj sidebar-next       # Ctrl-N - Next Mailbox
+bind index,pager \Co sidebar-open       # Ctrl-O - Open Highlighted Mailbox
+
+# Email account settings
+set from = ""
+set realname = ""
+
+set imap_user = ""
+set imap_pass = ""
+
+set smtp_url = ""
+set smtp_pass = ""
+
+# Folder settings
+set folder = "imaps://imap.gmail.com/"
+set spoolfile = "+INBOX"
+set postponed = "+[Gmail]/Concepten"
+set record = "+[Gmail]/Verzonden berichten"
+set trash = "+[Gmail]/Prullenbak"
+
+mailboxes =INBOX =[Gmail]/Spam =[Gmail]/Concepten =[Gmail]/Verzonden\ berichten =[Gmail]/Prullenbak 
+
+source colors.muttrc
