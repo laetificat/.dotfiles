@@ -12,6 +12,8 @@ Currently contains
   - ranger
 - neovim
   - vim-plug
+- X11
+- picom
 
 # Gotchas
 The neomutt/mutt config needs email creds, gotta enter them manually.  
