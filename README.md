@@ -12,6 +12,7 @@ Currently contains
   - ranger
 - neovim
   - vim-plug
+  - nodejs + npm (for coc plugin)
 - X11
 - picom
 
