@@ -115,8 +115,8 @@ font:
     family: Fira Code
 
     # The `style` can be specified to pick a specific face.
-    style: Retina 
-
+    style: Normal
+    
   # Bold font face
   bold:
     # Font family
@@ -151,7 +151,7 @@ font:
     style: Bold Italic
 
   # Point size
-  size: 13.0
+  size: 10.0
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
