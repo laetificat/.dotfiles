@@ -23,6 +23,9 @@ call plug#begin("~/.vim/plugged")
 
   " Vim Go
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+  " Buffer Bye
+  Plug 'moll/vim-bbye'
 call plug#end()
 " Line numbers
 set number
@@ -202,7 +205,7 @@ let g:go_fmt_command = "goimports"
 " Buffer switching
 nnoremap <C-l> :bnext<CR>
 nnoremap <C-h> :bprev<CR>
-nnoremap <C-x> :bd<CR>
+nnoremap <C-x> :Bdelete<CR>
 
 " NERDTree
 let g:NERDTreeShowHidden = 1
@@ -243,3 +246,5 @@ endfunction
 nnoremap <C-n> :call OpenTerminal()<CR>
 
 nnoremap <C-s> :w<CR>
+
+let bclose_multiple = 0
