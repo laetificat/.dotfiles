@@ -1,28 +1,37 @@
 call plug#begin("~/.vim/plugged")
   " Theme
-  Plug 'dracula/vim'
+  Plug 'altercation/vim-colors-solarized'
 
-  " Language Client
+  " Language Client for autocomplete
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-go']
-  " TypeScript Highlighting
-  Plug 'leafgarland/typescript-vim'
-  Plug 'peitalin/vim-jsx-typescript'
+  let g:coc_global_extensions = [
+  \ 'coc-emmet',
+  \ 'coc-css',
+  \ 'coc-html',
+  \ 'coc-json',
+  \ 'coc-prettier',
+  \ 'coc-tsserver',
+  \ 'coc-go',
+  \ 'coc-html-css-support',
+  \ 'coc-angular'
+  \ ]
 
+  " Syntastic for syntax checking
+  Plug 'vim-syntastic/syntastic'
 
-  " File Explorer 
+  " Smooth scrolling
+  Plug 'psliwka/vim-smoothie'
+
+  " Nerdtree File Explorer 
   Plug 'scrooloose/nerdtree'
 
-  " File Search
+  " Fuzzy finder
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
 
   " Vim Airline
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
-
-  " Vim Go
-  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
   " Buffer Bye
   Plug 'moll/vim-bbye'
@@ -148,16 +157,6 @@ omap ic <Plug>(coc-classobj-i)
 xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 
-" Remap <C-f> and <C-b> for scroll float windows/popups.
-if has('nvim-0.4.0') || has('patch-8.2.0750')
-  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-endif
-
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
 
@@ -192,7 +191,8 @@ endif
 
 " Theme
 syntax enable
-colorscheme dracula
+colorscheme solarized
+set background=light
 :hi Normal guibg=NONE ctermbg=NONE
 let g:airline_powerline_fonts = 1
 let g:airline_theme='bubblegum'
@@ -217,7 +217,9 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " Toggle
 nnoremap <silent> <C-b> :NERDTreeToggle<CR>
 
-nnoremap <C-p> :FZF<CR>
+" Fuzzy file and text finder
+nnoremap <C-p> :Files<CR>
+nnoremap <C-f> :Rg<CR>
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-s': 'split',
@@ -237,14 +239,20 @@ tnoremap <Esc> <C-\><C-n>
 " start terminal in insert mode
 au BufEnter * if &buftype == 'terminal' | :startinsert | endif
 
-" open terminal on ctrl+;
-" uses zsh instead of bash
-function! OpenTerminal()
-  split term://zsh
-  resize 10
-endfunction
-nnoremap <C-n> :call OpenTerminal()<CR>
-
+" Make CTRL+s write to file
 nnoremap <C-s> :w<CR>
 
+" Do not allow to close multiple buffers on quit
 let bclose_multiple = 0
+
+" Syntastic settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_go_checkers = ['golint']

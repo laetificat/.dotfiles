@@ -11,6 +11,8 @@ path=('/usr/local/opt/sqlite/bin/sqlite' $path)
 path=('/usr/local/opt/python/libexec/bin' $path)
 path=('/usr/local/opt/ncurses/bin' $path)
 path=('/usr/local/opt/ruby/bin' $path)
+path=('/usr/local/opt/php@7.4/bin' $path)
+path=('/usr/local/opt/php@7.4/sbin' $path)
 
 path+=('/Users/Kevin/go/bin')
 path+=('/Users/Kevin/bin')
@@ -28,6 +30,9 @@ export AANZEEPROJECTS="$HOME/Documents/Projects/bitbucket.org/aanzeeonline"
 alias python="python3"
 alias vi="nvim"
 alias vim="nvim"
+alias d="docker"
+alias k="kubectl"
+alias dc="docker-compose"
 
 # Plugin configuration
 #
@@ -44,5 +49,10 @@ source ~/.zsh/plugins/zsh-git-prompt/git-prompt.sh
 export GIT_PS1_SHOWDIRTYSTATE=1
 setopt PROMPT_SUBST ; PS1='%n@%m %c$(__git_ps1 " (%s)"): '
 
-
+# Fuzzy search
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Node version manager
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
