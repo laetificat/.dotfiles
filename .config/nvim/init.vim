@@ -1,6 +1,6 @@
 call plug#begin("~/.vim/plugged")
   " Theme
-  Plug 'altercation/vim-colors-solarized'
+  Plug 'arcticicestudio/nord-vim'
 
   " Language Client for autocomplete
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -191,14 +191,15 @@ endif
 
 " Theme
 syntax enable
-colorscheme solarized
+let g:nord_uniform_diff_background = 1
 set background=light
 :hi Normal guibg=NONE ctermbg=NONE
 let g:airline_powerline_fonts = 1
-let g:airline_theme='bubblegum'
+let g:airline_theme='nord'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+colorscheme nord
 
 let g:go_fmt_command = "goimports"
 
