@@ -16,6 +16,7 @@ path=('/usr/local/opt/php@7.4/sbin' $path)
 
 path+=('/Users/Kevin/go/bin')
 path+=('/Users/Kevin/bin')
+path+=('/Users/kevin/Library/pnpm')
 
 export PATH
 
@@ -25,6 +26,7 @@ export EDITOR="nvim"
 # Shortcuts to locations
 export PROJECTS="$HOME/Documents/Projects"
 export AANZEEPROJECTS="$HOME/Documents/Projects/bitbucket.org/aanzeeonline"
+export PNPM_HOME="/Users/kevin/Library/pnpm"
 
 # Aliases
 alias python="python3"
@@ -33,6 +35,7 @@ alias vim="nvim"
 alias d="docker"
 alias k="kubectl"
 alias dc="docker-compose"
+alias ll="ls -l"
 
 # Plugin configuration
 #
@@ -55,3 +58,5 @@ setopt PROMPT_SUBST ; PS1='%n@%m %c$(__git_ps1 " (%s)"): '
 # Fast Node.js Manager
 eval "$(fnm env --use-on-cd)"
 
+# Starship shell
+eval "$(starship init zsh)"
