@@ -42,8 +42,11 @@ alias ll="ls -l"
 # Syntax highlight
 source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# Autosuggestion
+# Load autocompletions
+fpath=(~/.zsh/completion $fpath)
 autoload compinit && compinit
+
+# Autosuggestion
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
