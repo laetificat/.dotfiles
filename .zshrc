@@ -1,24 +1,22 @@
-# Go configuration
-export GOPATH="/Users/Kevin/go"
-export GOPRIVATE="bitbucket.org/aanzeeonline"
-
 # Set program paths
-path=('/usr/local/sbin' $path)
-path=('/usr/local/bin' $path)
-path=('/usr/local/go/bin' $path)
-path=('/usr/local/opt/gettext/bin' $path)
-path=('/usr/local/opt/sqlite/bin/sqlite' $path)
-path=('/usr/local/opt/python/libexec/bin' $path)
-path=('/usr/local/opt/ncurses/bin' $path)
-path=('/usr/local/opt/ruby/bin' $path)
-path=('/usr/local/opt/php@7.4/bin' $path)
-path=('/usr/local/opt/php@7.4/sbin' $path)
-
-path+=('/Users/Kevin/go/bin')
-path+=('/Users/Kevin/bin')
-path+=('/Users/kevin/Library/pnpm')
-
+path+=('/usr/local/sbin')
+path+=('/usr/local/bin')
+path+=('/usr/local/go/bin')
+path+=('/usr/local/opt/gettext/bin')
+path+=('/usr/local/opt/sqlite/bin/sqlite')
+path+=('/usr/local/opt/python/libexec/bin')
+path+=('/usr/local/opt/ncurses/bin')
+path+=('/usr/local/opt/ruby/bin')
+path+=('/usr/local/opt/php@7.4/bin')
+path+=('/usr/local/opt/php@7.4/sbin')
+path+=("$HOME/go/bin")
+path+=("$HOME/bin")
+path+=("$HOME/Library/pnpm")
 export PATH
+
+# Go configuration
+export GOPATH="$HOME/go"
+export GOPRIVATE="bitbucket.org/aanzeeonline"
 
 # Replace some default variables
 export EDITOR="nvim"
@@ -26,7 +24,12 @@ export EDITOR="nvim"
 # Shortcuts to locations
 export PROJECTS="$HOME/Documents/Projects"
 export AANZEEPROJECTS="$HOME/Documents/Projects/bitbucket.org/aanzeeonline"
-export PNPM_HOME="/Users/kevin/Library/pnpm"
+
+# PNPM config
+export PNPM_HOME="$HOME/Library/pnpm"
+
+# lf's bookmark path
+export LF_BOOKMARK_PATH="$HOME/.config/lf/bookmarks/"
 
 # Aliases
 alias python="python3"
@@ -63,3 +66,4 @@ eval "$(fnm env --use-on-cd)"
 
 # Starship shell
 eval "$(starship init zsh)"
+

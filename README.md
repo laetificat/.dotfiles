@@ -9,7 +9,7 @@ Currently contains
 - alacritty
   - Fira Code font
   - MesloLGS NF font
-  - ranger
+  - LF
 - neovim
   - vim-plug
   - nodejs + npm (for coc plugin)
@@ -20,4 +20,3 @@ Currently contains
 The neomutt/mutt config needs email creds, gotta enter them manually.  
 There is no bootstrapping script yet, you gotta `ln -s` it all manually lol.  
 Fira Code font uses Retina style by default.  
-Alacritty has a shortcut for ranger, ALT+R
