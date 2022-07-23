@@ -3,11 +3,11 @@ Currently contains
 - neomutt
 - urlview
 - zsh
-  - zsh-syntax-highlighting
-  - zsh-autosuggestions
-  - zsh-git-prompt
+  - zsh-syntax-highlighting (antigen)
+  - zsh-autosuggestions (antigen)
+- starship
 - alacritty
-  - Fira Code font
+  - FuraCode Nerd Font
   - MesloLGS NF font
   - LF
 - neovim
@@ -16,7 +16,26 @@ Currently contains
 - X11
 - picom
 
+# Install MacOS
+- HomeBrew
+  - Neovim
+  - Starship
+  - FNM
+  - LF
+- Alacritty
+- FuraCode Nerd Font
+- MesloLGS NF font
+- vim-plug
+
+```shell
+brew install neovim starship fnm lf
+mkdir ~/.config
+cd ~/.config
+ln -s ~/.dotfiles/.config/* .
+```
+
+Open neovim and do a :PlugInstall
+
 # Gotchas
 The neomutt/mutt config needs email creds, gotta enter them manually.  
 There is no bootstrapping script yet, you gotta `ln -s` it all manually lol.  
-Fira Code font uses Retina style by default.  
